@@ -1,9 +1,4 @@
-import argparse
-from collections import defaultdict
-
 import requests
-
-import git
 
 
 def print_hi(name):
