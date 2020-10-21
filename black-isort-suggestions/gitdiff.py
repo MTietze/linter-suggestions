@@ -37,8 +37,8 @@ def main(commit_sha, comments_url, github_token):
         }
         if hunk["start_line"] >= hunk["line"]:
             #     Single line comment
-            headers.pop('Accept')
-            hunk['line'] = hunk.pop('start_line')
+            headers.pop("Accept")
+            hunk["line"] = hunk.pop("start_line")
         print(f"Making request: {hunk}")
         resp = requests.post(comments_url, json=hunk, headers=headers)
         if resp.status_code >= 400:
@@ -54,7 +54,9 @@ def comment_body(hunk):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("commit_sha",)
+    parser.add_argument(
+        "commit_sha",
+    )
     parser.add_argument("comments_url")
     parser.add_argument("github_token")
     args = parser.parse_args()
