@@ -1,0 +1,12 @@
+on: [pull_request]
+name: Black Isort Suggestions
+jobs:
+  black-isort-suggestions:
+    name: black-isort-suggestions
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: black-isort-suggestions
+      uses: ./black-isort-suggestions
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
