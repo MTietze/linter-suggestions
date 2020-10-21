@@ -19,7 +19,8 @@ def main(commit_sha, comments_url, github_token):
 
         for hunk in patched_file:
             hunk_json = {
-                "start_line": hunk.source_start,
+                # line 0 is not accepted
+                "start_line": hunk.source_start or 1,
                 "line": hunk.source_start + hunk.source_length - 1,
                 "body": comment_body(hunk),
                 "path": file_path,
