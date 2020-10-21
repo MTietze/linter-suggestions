@@ -54,9 +54,7 @@ def comment_body(hunk):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "commit_sha",
-    )
+    parser.add_argument("commit_sha",)
     parser.add_argument("comments_url")
     parser.add_argument("github_token")
     args = parser.parse_args()
