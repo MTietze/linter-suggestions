@@ -18,9 +18,11 @@ def main(commit_sha, comments_url, github_token):
         file_path = patched_file.path
 
         for hunk in patched_file:
+            # line 0 is not accepted
+            start = hunk.source_start or 1
             hunk_json = {
-                "start_line": hunk.source_start,
-                "line": hunk.source_start + hunk.source_length - 1,
+                "start_line": start,
+                "line": start + hunk.source_length - 1,
                 "body": comment_body(hunk),
                 "path": file_path,
                 "commit_id": commit_sha,
