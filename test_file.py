@@ -1,8 +1,8 @@
+import argparse
 from io import StringIO
 import requests
 
 import git
-import argparse
 
 
 def print_hi(name):
